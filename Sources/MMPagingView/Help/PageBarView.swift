@@ -71,4 +71,15 @@ struct PageBarView: View {
         self.manager = Manager(titles: titles, pageManager: pageManager)
         self.pageManager = pageManager
     }
+
+    public func setHighlightColor(_ color: Color) -> Self {
+      manager.tintColor = color
+      return self
+    }
+
+    public func setNormalColor(_ color: Color) -> Self {
+      manager.normalColor = color
+      return self
+    }
+
 }
