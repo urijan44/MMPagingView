@@ -7,24 +7,22 @@ public struct MMPagingView: View {
     let views: [AnyView]
 
     public var body: some View {
-      VStack {
+      VStack(spacing: 0) {
             Text(pageManager.currentTitle)
-            .padding(.top)
+            .padding(.vertical, 6)
             .frame(height: 33)
             .font(.system(size: 16, weight: .black))
-            Divider()
             PageBarView(titles: titles, pageManager: pageManager)
                 .setHighlightColor(pageManager.highlightColor)
                 .setNormalColor(pageManager.normalColor)
                 .frame(height: 48)
-            Divider()
-                .padding(.bottom, 10)
             TabView(selection: $pageManager.currentIndex) {
                 ForEach(titles, id: \.id) { title in
                     TaggingView(index: title.index)
                         .tag(title.index)
                 }
             }
+            .padding(.top, 1)
             .tabViewStyle(.page(indexDisplayMode: .never))
         }
         .onAppear {

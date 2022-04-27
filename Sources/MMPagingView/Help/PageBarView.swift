@@ -15,7 +15,8 @@ struct PageBarView: View {
         GeometryReader { geometry in
             ScrollViewReader { proxy in
                 ScrollView(.horizontal, showsIndicators: false) {
-                    VStack {
+                    VStack(spacing: 0) {
+                        Divider()
                         HStack(
                             alignment: .center,
                             spacing: manager.itemSpace) {
@@ -47,6 +48,7 @@ struct PageBarView: View {
                                 x: indicatorXOffset + manager.tapBarWdith(viewWidth: geometry.size.width) / 2,
                                 y: -(manager.indicatorThinkness / 2))
                             .animation(.default, value: 1)
+                      Divider()
                     }
                 }
                 .onAppear {
