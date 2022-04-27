@@ -8,6 +8,9 @@ public struct MMPagingView: View {
 
     public var body: some View {
       VStack(spacing: 10) {
+            Text(pageManager.currentTitle)
+            .frame(height: 44)
+            .font(.system(size: 15, weight: .black))
             PageBarView(titles: titles, pageManager: pageManager)
                 .setHighlightColor(pageManager.highlightColor)
                 .setNormalColor(pageManager.normalColor)
@@ -23,6 +26,8 @@ public struct MMPagingView: View {
         }
         .onChange(of: pageManager.currentIndex) { newValue in
             NotificationCenter.default.post(name: ViewChangeNotification.name, object: nil, userInfo: [ViewChangeNotification.Keys.index: newValue])
+
+              pageManager.currentTitle = titles[pageManager.currentIndex].title
         }
     }
 

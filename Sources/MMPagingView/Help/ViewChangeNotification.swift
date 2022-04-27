@@ -11,5 +11,6 @@ public struct ViewChangeNotification {
 
     public enum Keys: String {
         case index
+        case title
     }
 }
