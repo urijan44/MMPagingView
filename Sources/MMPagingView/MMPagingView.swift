@@ -12,6 +12,7 @@ public struct MMPagingView: View {
             .padding(.top)
             .frame(height: 22)
             .font(.system(size: 16, weight: .black))
+            Divider()
             PageBarView(titles: titles, pageManager: pageManager)
                 .setHighlightColor(pageManager.highlightColor)
                 .setNormalColor(pageManager.normalColor)
