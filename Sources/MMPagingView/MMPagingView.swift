@@ -5,13 +5,12 @@ public struct MMPagingView: View {
 
     let titles: [TabBarItem]
     let views: [AnyView]
-    @State var highlightColor = Color.accentColor
-    @State var normalColor = Color.black
+
     public var body: some View {
       VStack(spacing: 10) {
             PageBarView(titles: titles, pageManager: pageManager)
-                .setHighlightColor(highlightColor)
-                .setNormalColor(normalColor)
+                .setHighlightColor(pageManager.highlightColor)
+                .setNormalColor(pageManager.normalColor)
                 .frame(height: 48)
             TabView(selection: $pageManager.currentIndex) {
                 ForEach(titles, id: \.id) { title in
@@ -49,12 +48,12 @@ public struct MMPagingView: View {
     }
 
     public func setHighlightColor(_ color: Color) -> Self {
-      highlightColor = color
-      return self
+        pageManager.highlightColor = color
+        return self
     }
-    
+
     public func setNormalColor(_ color: Color) -> Self {
-      normalColor = color
-      return self
+        pageManager.normalColor = color
+        return self
     }
 }
