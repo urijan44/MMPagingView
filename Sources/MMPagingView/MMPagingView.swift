@@ -17,6 +17,7 @@ public struct MMPagingView: View {
                 .setHighlightColor(pageManager.highlightColor)
                 .setNormalColor(pageManager.normalColor)
                 .frame(height: 48)
+            Divider()
                 .padding(.bottom, 10)
             TabView(selection: $pageManager.currentIndex) {
                 ForEach(titles, id: \.id) { title in
