@@ -9,7 +9,7 @@ import Foundation
 public struct ViewChangeNotification {
     public static let name = Notification.Name("ViewChange")
 
-    enum Keys: String {
+    public enum Keys: String {
         case index
     }
 }
