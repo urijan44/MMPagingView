@@ -9,8 +9,8 @@ public struct MMPagingView: View {
     public var body: some View {
       VStack(spacing: 10) {
             Text(pageManager.currentTitle)
-            .frame(height: 44)
-            .font(.system(size: 15, weight: .black))
+            .frame(height: 22)
+            .font(.system(size: 16, weight: .black))
             PageBarView(titles: titles, pageManager: pageManager)
                 .setHighlightColor(pageManager.highlightColor)
                 .setNormalColor(pageManager.normalColor)
@@ -18,7 +18,6 @@ public struct MMPagingView: View {
             TabView(selection: $pageManager.currentIndex) {
                 ForEach(titles, id: \.id) { title in
                     TaggingView(index: title.index)
-
                         .tag(title.index)
                 }
             }
