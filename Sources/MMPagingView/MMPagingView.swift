@@ -9,6 +9,7 @@ public struct MMPagingView: View {
     public var body: some View {
       VStack(spacing: 10) {
             Text(pageManager.currentTitle)
+            .padding(.top)
             .frame(height: 22)
             .font(.system(size: 16, weight: .black))
             PageBarView(titles: titles, pageManager: pageManager)
@@ -22,6 +23,9 @@ public struct MMPagingView: View {
                 }
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
+        }
+        .onAppear {
+          pageManager.currentTitle = titles.first ?? ""
         }
         .onChange(of: pageManager.currentIndex) { newValue in
             NotificationCenter.default.post(name: ViewChangeNotification.name, object: nil, userInfo: [ViewChangeNotification.Keys.index: newValue])
