@@ -25,7 +25,7 @@ public struct MMPagingView: View {
             .tabViewStyle(.page(indexDisplayMode: .never))
         }
         .onAppear {
-          pageManager.currentTitle = titles.first ?? ""
+          pageManager.currentTitle = titles.first?.title ?? ""
         }
         .onChange(of: pageManager.currentIndex) { newValue in
             NotificationCenter.default.post(name: ViewChangeNotification.name, object: nil, userInfo: [ViewChangeNotification.Keys.index: newValue])
